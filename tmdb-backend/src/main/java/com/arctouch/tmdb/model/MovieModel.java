@@ -2,9 +2,13 @@ package com.arctouch.tmdb.model;
 
 import java.util.List;
 
-public class ResponseModel {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class MovieModel {
 	Integer page;
+	@JsonProperty("total_pages")
 	Integer totalPages;
+	@JsonProperty("total_results")
 	Integer totalResults;
 	Dates dates;
 	List<Movie> results;

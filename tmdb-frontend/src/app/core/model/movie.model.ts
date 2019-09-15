@@ -1,16 +1,17 @@
 interface Movie {
-    posterPath:string;
+    poster_path:string;
 	adult:boolean;
 	overview:string;
-	releaseDate:string;
-	genreIds:number[];
+	release_date:string;
+	genre_ids:number[];
 	id:number;
-	originaTitle:string;
-	originalLanguage:string;
+	original_title:string;
+	original_language:string;
 	title:string;
-	backdropPath:string;
+	backdrop_path:string;
 	popularity:number;
-	voteCount:number;
+	vote_count:number;
 	video:boolean;
-	voteAverage:number;
+	vote_average:number;
+	genres:Genre[];
 }

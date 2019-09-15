@@ -10,7 +10,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.arctouch.tmdb.model.ResponseModel;
+import com.arctouch.tmdb.model.MovieModel;
 
 public abstract class TmdbRestService {
 
@@ -21,7 +21,10 @@ public abstract class TmdbRestService {
 	@Value("${tmdb.api.access.token}")
 	private String accessToken;
 	
-	protected ResponseModel get(String path, MultiValueMap<String, String> params) {
+	protected MovieModel get(String path, MultiValueMap<String, String> params) {
+		return get(path, params, MovieModel.class);
+	}
+	protected <T> T get(String path, MultiValueMap<String, String> params, Class<T> responseType) {
 		if(params == null) params = new LinkedMultiValueMap<String, String>();
 		
 		params.add("api_key", accessToken);
@@ -31,6 +34,6 @@ public abstract class TmdbRestService {
 		        .queryParams(params)
 		        .build()
 		        .toUri();
-		return restTemplate.getForObject(uri, ResponseModel.class);
+		return restTemplate.getForObject(uri, responseType);
 	}
 }

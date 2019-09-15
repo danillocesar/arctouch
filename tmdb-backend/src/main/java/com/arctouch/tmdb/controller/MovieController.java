@@ -24,4 +24,8 @@ public class MovieController {
 	public ResponseEntity<ApiResponse> getUpcomingMovies(@RequestParam Integer page) {
 		return ResponseEntityUtil.okResponseEntity("Success", movieService.getUpComingMovies(page));
 	}
+	@GetMapping("/query")
+	public ResponseEntity<ApiResponse> findByQuery(@RequestParam String query, @RequestParam Integer page) {
+		return ResponseEntityUtil.okResponseEntity("Success", movieService.findByQuery(query, page));
+	}
 }

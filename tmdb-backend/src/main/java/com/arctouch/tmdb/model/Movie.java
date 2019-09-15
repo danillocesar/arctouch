@@ -2,21 +2,33 @@ package com.arctouch.tmdb.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Movie {
+	@JsonProperty("poster_path")
 	String posterPath;
 	Boolean adult;
 	String overview;
+	@JsonProperty("release_date")
 	String releaseDate;
+	@JsonProperty("genre_ids")
 	List<Integer> genreIds;
 	Integer id;
-	String originaTitle;
+	@JsonProperty("original_title")
+	String originalTitle;
+	@JsonProperty("original_language")
 	String originalLanguage;
 	String title;
+	@JsonProperty("backdrop_path")
 	String backdropPath;
 	Integer popularity;
+	@JsonProperty("vote_count")
 	Integer voteCount;
 	Boolean video;
+	@JsonProperty("vote_average")
 	Integer voteAverage;
+	List<Genre> genres;
+	
 	public String getPosterPath() {
 		return posterPath;
 	}
@@ -53,11 +65,11 @@ public class Movie {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getOriginaTitle() {
-		return originaTitle;
+	public String getOriginalTitle() {
+		return originalTitle;
 	}
-	public void setOriginaTitle(String originaTitle) {
-		this.originaTitle = originaTitle;
+	public void setOriginalTitle(String originalTitle) {
+		this.originalTitle = originalTitle;
 	}
 	public String getOriginalLanguage() {
 		return originalLanguage;
@@ -101,5 +113,10 @@ public class Movie {
 	public void setVoteAverage(Integer voteAverage) {
 		this.voteAverage = voteAverage;
 	}
-	
+	public List<Genre> getGenres() {
+		return genres;
+	}
+	public void setGenres(List<Genre> genres) {
+		this.genres = genres;
+	}
 }

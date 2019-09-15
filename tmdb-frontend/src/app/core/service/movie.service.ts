@@ -11,4 +11,7 @@ export class MovieService {
   public getUpcoming(page:number):Observable<ApiResponse>{
     return this.http.get<any>(`http://localhost/movies/upcoming?page=${page}`);
   }
+  public queryMovie(query:string, page:number):Observable<ApiResponse>{
+    return this.http.get<any>(`http://localhost/movies/query?query=${query}&page=${page}`);
+  }
 }
